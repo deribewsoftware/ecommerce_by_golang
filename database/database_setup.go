@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 	"time"
-
+"fmt"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -26,8 +26,11 @@ func DBSet() *mongo.Client {
 	log.Println("failed to connect to MongoDB:(")
 	return nil
  }
+ fmt.Println("successfully connected to MongoDB")
+ return client
 
 }
+var Clinet *mongo.Client=DBSet()
 
 func UserData(client *mongo.Client, collectionName string) *mongo.Collection {
 
